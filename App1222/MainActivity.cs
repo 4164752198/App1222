@@ -1,19 +1,49 @@
-﻿using Android.App;
-using Android.OS;
-using Android.Support.V7.App;
-using Android.Runtime;
-using Android.Widget;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace App1222
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    class Program
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        static void Main(string[] args)
         {
-            base.OnCreate(savedInstanceState);
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+
+        }
+        class Village
+        {
+            public static int numberofvillages = 0;
+            public Village nextvillage;
+            public Village previousvillage;
+            public string Villagename;
+            public bool isAstrildeHere = false;
+            public Village()
+            { Village.numberofvillages++; }
+        }
+        class Countryside
+        {
+            public Village Maple;
+
+            public Village Toronto;
+            public Village Ajax;
+            public void MapInitializer()
+            {
+                Maple = new Village();
+                Maple.Villagename = "Maple";
+                Maple.previousvillage = null;
+                Toronto = new Village();
+                Toronto.Villagename = "Toronto";
+                Toronto.previousvillage = null;
+                Ajax = new Village();
+                Ajax.Villagename = "Ajax";
+                Ajax.nextvillage = null;
+                Ajax.previousvillage = Toronto;
+                Ajax.isAstrildeHere = true;
+
+
+            }
         }
     }
 }
